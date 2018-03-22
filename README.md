@@ -88,24 +88,28 @@ cd
 
 # Compile firmware
 
-```
-wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/tree/ lxsources/OrangePiPrime_v1/lib/modules/firmware
-```
+
 
 # Compile Alpine initramfs and modloop
 
-Download the latest Alpine uboot archive
+Download the latest Alpine uboot archive and untar it:
+```
+wget http://dl-2.alpinelinux.org/alpine/v3.7/releases/aarch64/alpine-uboot-3.7.0_rc3-aarch64.tar.gz
+mkdir alpineuboot
+tar -xvzf alpine-uboot-3.7.0_rc3-aarch64.tar.gz -C alpineuboot
+```
 
 Un-archive the initramfs-vanilla
 ```
 mkdir temp
 cd temp
-gunzip -c /root/alpine/initramfs-vanilla | cpio -i
+gunzip -c /root/alpineuboot/boot/initramfs-vanilla | cpio -i
 ```
 
-Copy the modules folder and archive it:
+Copy the modules folder and archive the new initramfs:
 ```
-cp -rp /root/lxsources/OrangePiPrime_v1/lib/* lib/
+rm -rf lib/modules/* #there should be already a kernel modules folder there so delete it first then copy the new kernel modules
+cp -rp /root/lxsources/OrangePiPrime_v1/lib/modules* lib/modules
 find . | cpio -H newc -o | gzip -9 > /root/initramfs-sunxi-new
 ```
 
@@ -116,8 +120,11 @@ mkimage -n initramfs-sunxi -A arm -O linux -T ramdisk -C none -d initramfs-sunxi
 cp -rp initramfs-sunxi lxsources/OrangePiPrime_v1/
 ```
 
+Now to compile the modloop file we need to create another temporary folder and copy here the modules folder and the firmware folder, which we will delete along with the temp folder created for initramfs :
 
-
+mkdir squashfs-temp
+cp -rp lxsources/OrangePiPrime_v1/lib/* squashfs-temp
+mksquashfs squashfs-temp/ modloop-sunxi -b 1048576
 
 
 
