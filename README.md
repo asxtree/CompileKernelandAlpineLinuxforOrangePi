@@ -1,6 +1,7 @@
 # Compile Kernel and AlpineLinux for OrangePi
 
 NOTICE: This was tested only on Ubuntu 16!!!!
+Prerequisites: Ubuntu 16 machine!!!!!
 
 # Install packages
 
