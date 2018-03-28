@@ -135,7 +135,7 @@ gunzip -c /root/alpineuboot/boot/initramfs-vanilla | cpio -i
 Copy the `modules` folder and archive the new `initramfs`:
 ```
 rm -rf lib/modules/* #there should be already a kernel modules folder there so delete it first then copy the new kernel modules
-cp -rp /root/lxsources/boot/lib/modules* lib/modules
+cp -rp /root/lxsources/boot/lib/modules/* lib/modules
 find . | cpio -H newc -o | gzip -9 > /root/initramfs-sunxi-new
 ```
 
@@ -253,7 +253,7 @@ Format the new partition and copy the sources:
 cd
 mkfs.ext4 /dev/mmcblk0p1
 mount /dev/mmcblk0p1 /mnt/
-cp -rp lxsources/* /mnt/
+cp -r lxsources/* /mnt/
 ```
 
 Create the boot.scr file and unmount the partition:
