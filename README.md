@@ -107,7 +107,7 @@ make ARCH=arm64 CROSS_COMPILE=$TOOLS INSTALL_MOD_PATH=output modules modules_ins
 cp -r arch/arm64/boot/Image output/vmlinuz-4.16.0-rc7-sunxi64 #the version may differ 
 cp -r arch/arm64/boot/dts/allwinner/sun50i-h5-orangepi-prime.dtb output/
 cp -r System.map output/System.map-4.16.0-rc7-sunxi64
-cp -r arch/arm64/config/orangepi_prime_defconfig output/config-4.16.0-rc7-sunxi64
+cp -r .config output/config-4.16.0-rc7-sunxi64
 ```
 
 Now copy the contents of the output folder to your building folder and go back to `root`:
