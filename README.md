@@ -1,6 +1,7 @@
 # Compile Kernel and AlpineLinux for OrangePi
 
 NOTICE: This was tested only on Ubuntu 16!!!!
+
 Prerequisites: Ubuntu 16 machine!!!!!
 
 # Install packages
@@ -181,6 +182,9 @@ rm -rf lxsources/boot/lib/
 cp -rp alpineuboot/apks lxsources/
 cd lxsources/boot/
 ```
+
+# Copy sources to SD card 
+
 Insert the SD card into the linux machine and find it:
 ```
 fdisk -l
