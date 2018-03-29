@@ -26,7 +26,7 @@ apt install git make gcc u-boot-tools gcc-aarch64-linux-gnu g++-aarch64-linux-gn
  binutils swig python python-dev python3-dev bison flex bc bridge-utils build-essential cpufrequtils \
  device-tree-compiler figlet fbset fping iw fake-hwclock wpasupplicant psmisc ntp parted rsync sudo curl linux-base \
  dialog crda wireless-regdb ncurses-term python3-apt sysfsutils toilet u-boot-tools unattended-upgrades \
- usbutils wireless-tools console-setup unicode-data openssh-server initramfs-tools \
+ usbutils wireless-tools console-setup unicode-data openssh-server initramfs-tools libncurses-dev \
  ca-certificates resolvconf expect rcconf iptables automake bison flex libwrap0-dev \
  libssl-dev libnl-3-dev libnl-genl-3-dev alsa-utils btrfs-tools dosfstools hddtemp iotop \
  iozone3 stress sysbench screen ntfs-3g vim pciutils evtest htop pv lsof apt-transport-https \
